@@ -8,6 +8,9 @@
  */
 void swap_node(listint_t **h, listint_t *node1, listint_t *node2)
 {
+	if (node1 == NULL || node2 == NULL || node1 == node2)
+		return;
+
 	node2->prev = node1->prev;
 	node1->next = node2->next;
 
