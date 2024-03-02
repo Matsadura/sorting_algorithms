@@ -35,7 +35,7 @@ size_t _sort(int *arr, size_t size, size_t left, size_t right)
 	i = j = left;
 	for (j = i; j < piv; j++)
 	{
-		if (arr[j] < arr[piv])
+		if (arr[j] <= arr[piv])
 		{
 			if (j != i)
 			{
