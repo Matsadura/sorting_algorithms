@@ -65,7 +65,7 @@ void q_sort_wrap(int *array, size_t size, size_t left, size_t right)
 	if (left < right)
 	{
 		pivot = _sort(array, size, left, right);
-		if (left > 0)
+		if (pivot > 0)
 			q_sort_wrap(array, size, left, pivot - 1);
 		q_sort_wrap(array, size, pivot + 1, right);
 	}
