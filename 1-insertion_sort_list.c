@@ -35,10 +35,12 @@ void swap_node(listint_t **h, listint_t *node1, listint_t *node2)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list, *next_node;
+	listint_t *current, *next_node;
 
 	if (list == NULL || (*list)->next == NULL || *list == NULL)
 		return;
+
+	current = *list;
 	while (current != NULL)
 	{
 		next_node = current->next;
