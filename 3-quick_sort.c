@@ -10,12 +10,12 @@
 void _swap(int *arr, size_t size, int *int1, int *int2)
 {
 	int tmp;
-
-	tmp = *int1;
-	*int1 = *int2;
-	*int2 = tmp;
-
-	print_array(arr, size);
+		
+		tmp = *int1;
+		*int1 = *int2;
+		*int2 = tmp;
+		
+		print_array(arr, size);
 }
 
 /**
@@ -29,24 +29,24 @@ void _swap(int *arr, size_t size, int *int1, int *int2)
 size_t _sort(int *arr, size_t size, size_t left, size_t right)
 {
 	size_t piv;
-	size_t i, j;
-
-	piv = right;
-	i = j = left;
-	for (j = i; j < piv; j++)
-	{
-		if (arr[j] <= arr[piv])
+		size_t i, j;
+		
+		piv = right;
+		i = j = left;
+		for (j = i; j < piv; j++)
 		{
-			if (j != i)
+			if (arr[j] <= arr[piv])
 			{
-				_swap(arr, size, &arr[i], &arr[j]);
+				if (j != i)
+				{
+					_swap(arr, size, &arr[i], &arr[j]);
+				}
+				i++;
 			}
-			i++;
 		}
-	}
 	if (i != right)
 		_swap(arr, size, &arr[i], &arr[piv]);
-	return (i);
+			return (i);
 }
 
 /**
@@ -61,14 +61,14 @@ size_t _sort(int *arr, size_t size, size_t left, size_t right)
 void q_sort_wrap(int *array, size_t size, size_t left, size_t right)
 {
 	size_t pivot;
-
-	if (left < right)
-	{
-		pivot = _sort(array, size, left, right);
-		if (pivot > 0)
-			q_sort_wrap(array, size, left, pivot - 1);
-		q_sort_wrap(array, size, pivot + 1, right);
-	}
+		
+		if (left < right)
+		{
+			pivot = _sort(array, size, left, right);
+				if (pivot > 0)
+					q_sort_wrap(array, size, left, pivot - 1);
+						q_sort_wrap(array, size, pivot + 1, right);
+		}
 }
 
 /**
@@ -80,9 +80,9 @@ void q_sort_wrap(int *array, size_t size, size_t left, size_t right)
  */
 void quick_sort(int *array, size_t size)
 {
-
-	if (!array || size < 2)
-		return;
-
-	q_sort_wrap(array, size, 0, size - 1);
+	
+		if (!array || size < 2)
+			return;
+				
+				q_sort_wrap(array, size, 0, size - 1);
 }

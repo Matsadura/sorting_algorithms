@@ -8,10 +8,10 @@
 void _swap(int *int1, int *int2)
 {
 	int tmp;
-
-	tmp = *int1;
-	*int1 = *int2;
-	*int2 = tmp;
+		
+		tmp = *int1;
+		*int1 = *int2;
+		*int2 = tmp;
 }
 
 /**
@@ -24,24 +24,24 @@ void _swap(int *int1, int *int2)
 void shell_sort(int *array, size_t size)
 {
 	size_t gap = 1;
-	size_t i, j;
-
-	if (!array || size < 2)
-		return;
-
-	while (gap < (size / 3))
-	{
-		gap = gap * 3 + 1;
-	}
-
-	while (gap > 0)
-	{
-		for (i = gap; i < size; i++)
+		size_t i, j;
+		
+		if (!array || size < 2)
+			return;
+				
+				while (gap < (size / 3))
+				{
+					gap = gap * 3 + 1;
+				}
+	
+		while (gap > 0)
 		{
-			for (j = i; j >= gap && array[j - gap] > array[j]; j -= gap)
-				_swap(&array[j], &array[j - gap]);
+			for (i = gap; i < size; i++)
+			{
+				for (j = i; j >= gap && array[j - gap] > array[j]; j -= gap)
+					_swap(&array[j], &array[j - gap]);
+			}
+			gap = (gap - 1) / 3;
+				print_array(array, size);
 		}
-		gap = (gap - 1) / 3;
-		print_array(array, size);
-	}
 }
