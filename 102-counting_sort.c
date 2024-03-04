@@ -64,7 +64,9 @@ void counting_sort(int *array, size_t size)
 	count_arr = malloc(sizeof(size_t) * (k + 1));
 	if (!count_arr)
 		return;
+
 	output_arr = malloc(sizeof(size_t) * size);
+
 	if (!output_arr)
 	{
 		free(count_arr);
@@ -78,7 +80,6 @@ void counting_sort(int *array, size_t size)
 	{
 		output_arr[i] = 0;
 	}
-
 	/* fill counter table with accurance count if each index*/
 	counting_table(array, size, count_arr, k);
 	/*created output array and fill*/
@@ -87,7 +88,6 @@ void counting_sort(int *array, size_t size)
 		output_arr[count_arr[array[i]] - 1] = array[i];
 		count_arr[array[i]]--;
 	}
-
 	/*copy output array to input array*/
 	for (i = 0; i < (int)size; i++)
 		array[i] = output_arr[i];
